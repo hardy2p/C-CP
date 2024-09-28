@@ -1,72 +1,59 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class queueCircular
-{
-private:
-    int *arr;
-    int front;
-    int rear;
-    int size;
+class MyCircularQueue {
+    int* arr;
+    int front, rear, size;
 
 public:
-    queueCircular(int k)
-    {
-        size = k;
-        arr = new int[k];
+    MyCircularQueue(int k) {
+        size = k+1;
+        arr = new int[size];
         front = 0;
         rear = 0;
     }
-    // ~queueCircular()
-    // {
-    //     delete[] arr;
-    // }
 
-    void enQueue(int val)
-    {
-        if (isFull())
-        {
-            cout << "Queue is full" << endl;
-            return;
-        }
-        else
-        {
-            arr[rear] = val;
+    bool enQueue(int value) {
+        if (isFull()) {
+            return false;
+        } else {
+            arr[rear] = value;
             rear = (rear + 1) % size;
+            return true;
         }
     }
 
-    void deQueue()
-    {
-        if (isEmpty())
-        {
-            cout << "Empty queue" << endl;
-            return;
-        }
-        else
-        {
-            arr[front] = INT_MIN;
+    bool deQueue() {
+        if (isEmpty()) {
+            return false;
+        } else {
             front = (front + 1) % size;
+            return true;
         }
     }
 
-    bool isFull()
-    {
-        return (rear + 1) % size == front;
-    }
-    bool isEmpty()
-    {
-        return rear == front
-    }
-
-    int frontVal(){
-        if(isEmpty()){
+    int Front() {
+        if (isEmpty()) {
             return -1;
-        }else{
+        } else {
             return arr[front];
         }
     }
+
+    int Rear() {
+        if (isEmpty()) {
+            return -1;
+        } else {
+            return arr[(rear - 1 + size) % size];
+        }
+    }
+
+    bool isEmpty() { return front == rear; }
+
+    bool isFull() { return (rear + 1) % size == front; }
 };
+
+
 int main()
 {
 
