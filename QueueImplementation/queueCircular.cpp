@@ -50,7 +50,7 @@ public:
 
     bool isEmpty() { return front == rear; }
 
-    bool isFull() { return (rear + 1) % size == front; }
+    bool isFull() { return (rear + 1) % size == front; }//rear just at back of the front
 };
 
 
