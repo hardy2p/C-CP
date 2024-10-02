@@ -5,10 +5,15 @@ class Node{
     int data;
     Node *next;
     public:
-    //Constructor
+    //Multi Constructor
     Node(int val){
         this->data=val;
         this->next=NULL;
+    }
+
+    Node(int val,Node* nextNode){
+        this->data=val;
+        this->next=nextNode;
     }
 
     ~Node(){
@@ -59,6 +64,36 @@ void insertionAtPos(int val,Node* &head,,int pos){
     temp->next=newNode;
 
 }
+
+
+void deleteNode(int pos,Node* &head){
+    if(pos==1){
+        Node* temp=head;
+        head=head->next;
+        delete temp;
+    }
+
+    int cnt=1;
+    Node* curr=head;
+    Node* prev=NULL;
+    while(cnt < pos)
+    {
+        prev=curr;
+        curr=curr->next;
+        cnt++;
+    }
+    prev->next=curr->next;
+    delete curr;
+}
+
+void deleteDirectNode(Node* node){
+    Node* temp=node->next;
+    node->val=temp->val;
+    node->next=temp->next;
+    delete temp;
+}
+
+
 int main()
 {
     
