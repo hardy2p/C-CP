@@ -23,7 +23,7 @@ class Human
 };
 
 
-class Male:private Human{
+class Male:public Human{
     public:
     string color;
 
@@ -41,6 +41,7 @@ int main()
 {
     Male m1;
     cout<<m1.getHeight()<<endl;
+    cout<<m1.getAge()<<endl;
     m1.sleep();
 
     return 0;
