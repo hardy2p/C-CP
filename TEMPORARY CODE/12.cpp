@@ -42,26 +42,43 @@ string func1(string str){
     return ans;
 }
 
-//traverse a 2d matrix in an spiral order:-
-vector<int> spiralOrder(vector<vector<int>> nums){
-    int row=nums.size();
-    int col=nums[0].size();
-    vector<int> ans(row*col);
-    int cnt =0;
-    while(cnt < row * col){
-        //l->R
-        
-        //T->B
+//Stack using an  queue 
+//queue using stack
+//Gonna use two stack one inout one pit
 
-
-        //R->L
-
-
-        //B->T
-
-
+class myQueue{
+    stack<int> input;
+    stack<int> output;
+    public:
+    myQueue(){
+        //Default constructor
     }
-    return ans;
+
+    void push(int num){
+        input.push(num);
+    }
+
+    int pop(){
+        if(output.empty()){
+            while(!input.empty()){
+                output.push(input.top());
+                input.pop();
+            }
+        }
+        int ele=output.top();
+        output.pop();
+        return ele;
+    }
+
+    int peek(){
+        if(output.empty()){
+            while(!input.empty()){
+                output.push(input.top());
+                input.pop();
+            }
+        }
+        return output.top();
+    }
 }
 int main()
 {
