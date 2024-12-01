@@ -8,10 +8,12 @@ class myQueue{
     myQueue(){
 
     }
+    //push will always occur in input stack:-
     void push(int num){
         input.push(num);
     }
 
+    //Pop will always occur from output stack :-
     int pop(){
         if(output.empty())
         {

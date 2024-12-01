@@ -21,6 +21,10 @@ class myQueue{
             cout<<"Queue is full"<<endl;
             return;
         }
+        //Used to intilize the queue at staring
+        //and also when whole queue is popped 
+        //and start and end pointer are pointing to a random 
+        //location giving us an complex arbitary problems
         if(currSize==0){
             start=0;
             end=0;

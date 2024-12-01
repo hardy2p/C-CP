@@ -6,7 +6,8 @@ class myStack{
     public:
     void push(int num){
         q.push(num);
-        for(int i=0;i<q.size()-1;i++){
+        int n=q.size();
+        for(int i=0;i<n-1;i++){
             q.push(q.front());
             q.pop();
         }
