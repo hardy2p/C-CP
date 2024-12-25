@@ -15,7 +15,27 @@ class Node{
 };
 
 //Tree traversal Using BFS
+ void bfsTraversal(Node* root){
+    if(root==nullptr){
+        return;
+    }
 
+    queue<Node*> q;
+    q.push(root);
+    while(!q.empty()){
+        Node* currNode= q.front();
+        cout<<currNode->data<<" ";
+        q.pop();
+
+        if(currNode->left != nullptr){
+            q.push(currNode->left);
+        }
+
+        if(currNode->right != nullptr){
+            q.push(currNode->right);
+        }
+    }
+ }
 int main()
 {
     //Constructing a tree
@@ -28,5 +48,7 @@ int main()
     Node* d=new Node(5);
     a->left=c;
     a->right=d;
+
+    bfsTraversal(root);
     return 0;
 }
