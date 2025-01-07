@@ -61,8 +61,8 @@ vector<int> KMP(string pat,string txt){
 
 int main()
 {
-    string pat = "ababd";
-    string txt = "xyxyxyababd";
+    string pat = "abab";
+    string txt = "ababcabababababc";
     vector<int> ans = KMP(pat, txt);
     cout << "Index at which pat is present in txt are: "<<endl;
     for (auto num : ans)
