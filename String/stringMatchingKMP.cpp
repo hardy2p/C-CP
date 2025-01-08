@@ -30,7 +30,7 @@ void computeLps(string pat, vector<int> &lps)
         }
     }
 }
-
+//Main function
 vector<int> KMP(string pat,string txt){
     int m=pat.size();
     int n=txt.size();
